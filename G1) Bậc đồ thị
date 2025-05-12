@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+void tinhBac(int matrix[][100], int n, bool checkDoiXung) {
+    if (checkDoiXung) {
+        for (int i = 0; i < n; i++) {
+            int degree = 0;
+            for (int j = 0; j < n; j++) {
+                degree += matrix[i][j];
+            }
+            cout << degree;
+            if (i < n - 1) cout << ";";
+        }
+        cout << endl;
+    } else {
+        for (int i = 0; i < n; i++) {
+            int bacVao = 0;
+            for (int j = 0; j < n; j++) {
+                bacVao += matrix[i][j];
+            }
+            cout << bacVao;
+            if (i < n - 1) cout << ";";
+        }
+        cout << endl;
+
+        for (int i = 0; i < n; i++) {
+            int bacRa = 0;
+            for (int j = 0; j < n; j++) {
+                bacRa += matrix[j][i];
+            }
+            cout << bacRa;
+            if (i < n - 1) cout << ";";
+        }
+        //cout << endl;
+    }
+}
+bool checkDoiXung(int matrix[][100], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (matrix[i][j] != matrix[j][i]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+int main() {
+    int n;
+    cin >> n;
+    int matrix[100][100];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+    bool doiXung = checkDoiXung(matrix, n);
+    tinhBac(matrix, n, doiXung);
+
+    return 0;
+}
