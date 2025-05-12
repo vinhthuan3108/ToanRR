@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+const int MAX = 100; 
+int n, k, vi, vj;
+int Matrix[MAX][MAX];
+int countPaths(int u, int depth) {
+    if (depth == k) {
+        return (u == vj) ? 1 : 0;
+    }
+    int count = 0;
+    for (int v = 0; v < n; v++) {
+        if (Matrix[u][v] == 1) {
+            count += countPaths(v, depth + 1);
+        }
+    }
+    return count;
+}
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> Matrix[i][j];
+        }
+    }
+    cin >> k >> vi >> vj;
+    cout << countPaths(vi, 0);
+    return 0;
+} 
