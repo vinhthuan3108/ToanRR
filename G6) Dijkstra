@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+#define INF 1000000000  
+int matrix[100][100];
+int dist[100];
+bool visited[100];
+int vet[100];
+int n;
+void dijkstra(int start) {
+    for (int i = 0; i < n; i++) {
+        dist[i] = INF;
+        visited[i] = false;
+        vet[i] = -1;
+    }
+    dist[start] = 0;
+    for (int count = 0; count < n; count++) {
+        int u = -1;
+        int minDist = INF;
+        for (int i = 0; i < n; i++) {
+            if (!visited[i] && dist[i] < minDist) {
+                minDist = dist[i];
+                u = i;
+            }
+        }
+        if (u == -1) break;
+        visited[u] = true;
+        for (int v = 0; v < n; v++) {
+            if (matrix[u][v] > 0 && !visited[v]) {
+                if (dist[u] + matrix[u][v] < dist[v]) {
+                    dist[v] = dist[u] + matrix[u][v];
+                    vet[v] = u;
+                }
+            }
+        }
+    }
+}
+void print_path(int v, int start) {
+    if (v == start) {
+        cout << v;
+        return;
+    }
+    print_path(vet[v], start);
+    cout << "->" << v;
+}
+int main() {
+    cin >> n;
+    for (int i = 0; i < n * n; i++) {
+        cin >> matrix[i / n][i % n];
+    }
+    int v;
+    cin >> v;
+    dijkstra(v);
+    for (int i = 0; i < n; i++) {
+        if (dist[i] != INF) {
+            cout << i << "|" << dist[i] << "|";
+            print_path(i, v);
+            cout << endl;
+        }
+    }
+    return 0;
+}
