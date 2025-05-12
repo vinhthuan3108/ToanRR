@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+bool checkDoiXung(int Matrix[][100], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (Matrix[i][j] != Matrix[j][i]) {
+                return false; 
+            }
+        }
+    }
+    return true; 
+}
+int main() {
+    int n;
+    cin >> n;
+    int Matrix[100][100]; 
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> Matrix[i][j];
+        }
+    }
+    int canh = 0, khuyen = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            canh += Matrix[i][j];
+            if (i == j) { 
+                khuyen += Matrix[i][j];
+            }
+        }
+    }
+    if (checkDoiXung(Matrix, n)) {
+        canh = (canh - khuyen) / 2 + khuyen; 
+		}
+    cout << canh;
+    return 0;
+}
