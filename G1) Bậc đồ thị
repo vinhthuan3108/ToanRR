@@ -14,23 +14,23 @@ void tinhBac(int matrix[][100], int n, bool checkDoiXung) {
         cout << endl;
     } else {
         for (int i = 0; i < n; i++) {
-            int bacVao = 0;
+            int bacRa = 0;
             for (int j = 0; j < n; j++) {
                 //bacVao += matrix[i][j];
-                if (matrix[i][j] != 0) bacVao += 1;
+                if (matrix[i][j] != 0) bacRa += 1;
             }
-            cout << bacVao;
+            cout << bacRa;
             if (i < n - 1) cout << ";";
         }
         cout << endl;
 
         for (int i = 0; i < n; i++) {
-            int bacRa = 0;
+            int bacVao = 0;
             for (int j = 0; j < n; j++) {
-                //bacRa += matrix[j][i];
-                if (matrix[j][i] != 0) bacRa += 1;
+                //bacVao += matrix[j][i];
+                if (matrix[j][i] != 0) bacVao += 1;
             }
-            cout << bacRa;
+            cout << bacVao;
             if (i < n - 1) cout << ";";
         }
         //cout << endl;
