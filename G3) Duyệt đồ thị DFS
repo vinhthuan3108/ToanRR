@@ -1,3 +1,8 @@
+//Giả sử thuật toán DFS bắt đầu từ đỉnh v1 (đỉnh xuất phát), hiển nhiên v1 là đỉnh đã được thăm (tìm thấy).
+//Chọn v2 là một trong những đỉnh kề với v1 => v2 đã được thăm. 
+//Tổng quát cho đỉnh vk và vk+1 nếu không còn đỉnh nào kề với vk (vk là đỉnh treo hoặc các đỉnh kề với nó đã được thăm) thì ta nói rằng đỉnh vk đã được duyệt.
+//Quay lui về đỉnh vk−1 để tiếp tục tìm kiếm từ đỉnh này.
+//Thuật toán kết thúc khi mọi đỉnh đã được thăm-duyệt
 #include <iostream>
 #include <stack>
 using namespace std;
