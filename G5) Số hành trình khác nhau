@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
-const int MAX = 100; 
 int n, k, vi, vj;
-int Matrix[MAX][MAX];
+int Matrix[100][100];
 int countPaths(int u, int depth) {
     if (depth == k) {
         return (u == vj) ? 1 : 0;
