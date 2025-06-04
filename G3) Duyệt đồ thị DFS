@@ -6,9 +6,8 @@
 #include <iostream>
 #include <stack>
 using namespace std;
-const int MAX = 100; 
-bool visited[MAX]; 
-int matrix[MAX][MAX]; 
+bool visited[100]; 
+int matrix[100][100]; 
 void DFS(int n, int v) {
     stack<int> S;
     for (int i = 0; i < n; i++)
