@@ -21,7 +21,7 @@ int main() {
             cin >> Matrix[i][j];
         }
     }
-    cin >> k >> vi >> vj;
+    cin >> k >> vi >> vj;  //độ dài, đỉnh bắt đầu, đỉnh kết thúc
     cout << countPaths(vi, 0);
     return 0;
 } 
