@@ -2,9 +2,8 @@
 #include <stack>
 using namespace std;
 
-const int MAX = 100; 
-bool visited[MAX]; 
-int Matrix[MAX][MAX]; 
+bool visited[100]; 
+int Matrix[100][100]; 
 
 void DFS(int n, int v) {
     stack<int> S;
